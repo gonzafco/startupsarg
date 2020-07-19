@@ -1,0 +1,11 @@
+.Footer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .name{
+    color:white;
+    font-size: 1.3rem;
+}

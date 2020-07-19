@@ -1,0 +1,17 @@
+.navbar{
+    display: flex;
+    width: 100%;
+    padding:10px 50px;
+    background: #000000;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar .name{
+    color:white;
+    font-size: 1.3rem;
+}
+
+.navbar .action{
+    color:grey;
+}

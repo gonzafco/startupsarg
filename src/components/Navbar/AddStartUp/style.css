@@ -1,0 +1,53 @@
+.action{
+    color:grey;
+}
+
+.formWrapper{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin:0 auto;    
+    padding:20px;
+    background: whitesmoke;
+}
+
+.formWrapper .inputWrapper{
+    display: flex;
+    flex-direction: column; 
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
+.formWrapper .submitButton{
+    border-style: none;
+    padding:8px;
+    border-radius: 5px;
+    background: blue;
+    border:0.2px solid transparent;
+    color:white;
+    outline:none;
+    transition: 0.2s;
+    margin-top: 10px;
+}
+
+.formWrapper .submitButton:hover{
+    border-color: blue;
+    border:0.2px solid blue;
+    background: white;
+    color:blue
+}
+
+
+.formWrapper .inputWrapper .label{
+    display: flex;
+    flex-direction: column;
+}
+    
+
+
+.formWrapper .inputWrapper .label .input{
+    height: 2rem;
+    padding: 5px;
+}
+

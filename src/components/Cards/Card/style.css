@@ -1,0 +1,28 @@
+.Card{
+    display: flex;
+    width: 400px;
+    max-width: 400px;
+    border-radius:10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px grey;
+    margin:0 30px;
+    padding:10px
+
+}
+
+.Card .ImageCard{
+    width: 100px;
+}
+
+.Card .InfoCard{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    
+}
+
+.Card .InfoCard .Title{
+    font-weight: 500;
+    font-size: 1.2rem;
+    
+}
