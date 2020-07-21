@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Navbar";
 import Prueba from "./pages/Prueba";
 import AddStartUp from "./pages/AgregarStartUp";
+import StartUp from "./pages/VerStartUp";
+
 
 const startUps = 
   [{
@@ -30,6 +32,7 @@ ReactDOM.render(
     <Route exact path="/" component={App} />
     <Route exact path="/prueba" component={Prueba} />
     <Route exact path="/AgregarStartUp" component={AddStartUp} />
+    <Route exact path="/StartUp/:StartUpId" component={StartUp} />    
   </Router>,
   document.getElementById("root")
 );
@@ -38,3 +41,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+

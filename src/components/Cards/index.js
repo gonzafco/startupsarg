@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 class Cards extends React.Component {
-  
   render() {
     const startups = this.props.cards;
     const { filter } = this.props;
@@ -13,7 +13,11 @@ class Cards extends React.Component {
           return (
             <React.Fragment>
               {startup.title.toLowerCase().includes(filter.toLowerCase()) && (
-                <Card startup={startup} />
+                <Link
+                  to={"/StartUp/" + startup.title.toLowerCase()}                 
+                >
+                  <Card startup={startup} />
+                </Link>
               )}
             </React.Fragment>
           );

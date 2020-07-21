@@ -1,0 +1,44 @@
+.startUpWrapper{
+  max-width: 800px;  
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.startUpWrapper .headerDecoration{
+  height: 100px;
+  background-color:#1f51db;
+}
+
+.startUpWrapper .startUpHeader{
+  display: flex;     
+  margin-top: -80px;
+  padding-left:20px;
+  position: relative;
+}
+
+.startUpWrapper .startUpHeader .startUpProfile {
+  max-width: 150px;
+  padding:10px;
+  margin-right: 10px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+.startUpWrapper .startUpHeader .startUpTitle {
+  position: absolute;
+  left: 190px;
+  top:100px;
+  
+}
+
+.startUpWrapper .startUpInformation{
+  
+  margin-top: 20px;
+  padding-left:20px;
+
+}
+
+
+.startUpWrapper .startUpInformation .startUpDescription{
+  font-size: 2rem;
+}

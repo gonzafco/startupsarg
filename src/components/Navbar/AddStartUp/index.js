@@ -47,7 +47,6 @@ class AddStartUp extends React.Component {
     let listaStartUps = localStorage.getItem("lista");
     listaStartUps = JSON.parse(listaStartUps);
     listaStartUps.push(startUp);
-    console.log(listaStartUps, typeof listaStartUps);
     localStorage.setItem("lista", JSON.stringify(listaStartUps));
   }
 

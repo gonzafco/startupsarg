@@ -21,7 +21,6 @@ class App extends React.Component {
   componentDidMount() {
     let listaStartups = localStorage.getItem("lista")
     listaStartups = JSON.parse(listaStartups)
-    console.log(listaStartups, typeof(listaStartups))
     this.setState({
        cards: listaStartups
     });
