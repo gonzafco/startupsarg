@@ -18,9 +18,9 @@ class navbar extends React.Component {
 
     return (
       <div className="navbar">
-        <span className="name">
+        <Link to="/" ><span className="name">
           {name}
-        </span>
+        </span></Link>
         {/* <Search /> */}
         {search &&
         <p><input
@@ -35,11 +35,13 @@ class navbar extends React.Component {
 
         <Link
           className="action"
-          style={{ "textDecoration": "none" }}
-          to="/AgregarStartUp"
+          to="/agregar-startup"
         >
           Agregar Startup
         </Link>
+
+
+        
 
         
       </div>

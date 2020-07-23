@@ -16,6 +16,7 @@ class AddStartUp extends React.Component {
       instagram: "",
       estaOk: "",
       showMessage: false,
+      exist: false,
     };
   }
 
@@ -46,8 +47,23 @@ class AddStartUp extends React.Component {
   AddNewStartUp(startUp) {
     let listaStartUps = localStorage.getItem("lista");
     listaStartUps = JSON.parse(listaStartUps);
-    listaStartUps.push(startUp);
-    localStorage.setItem("lista", JSON.stringify(listaStartUps));
+    
+    if (this.checkStartUp(startUp.title, listaStartUps) === false) {
+      console.log("no existe y la agrego")
+      listaStartUps.push(startUp);
+      localStorage.setItem("lista", JSON.stringify(listaStartUps));
+    } else {
+      this.setState({ exist: true }, () => {
+        console.log(this.state.exist);
+      });
+    }
+  }
+
+  checkStartUp(startup, listaStartUps) {
+    let resultado = listaStartUps.find(
+      (item) => item.title.toLowerCase() === startup.toLowerCase()
+    );
+    return resultado === undefined ? false : true;
   }
 
   saveStartUp(item) {}

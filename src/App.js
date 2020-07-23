@@ -19,6 +19,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    document.title = "StartUps ARG"
     let listaStartups = localStorage.getItem("lista")
     listaStartups = JSON.parse(listaStartups)
     this.setState({
@@ -37,7 +38,6 @@ class App extends React.Component {
         />
         <Cards filter={inputValue} cards={cards} />
         <Footer creator="Gonzalito" />
-        <Link to={{ pathname: "/prueba", cards: cards }}>Ir a Prueba</Link>
       </div>
     );
   }

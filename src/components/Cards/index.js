@@ -14,7 +14,7 @@ class Cards extends React.Component {
             <React.Fragment>
               {startup.title.toLowerCase().includes(filter.toLowerCase()) && (
                 <Link
-                  to={"/StartUp/" + startup.title.toLowerCase()}                 
+                  to={"/start-up/" + startup.title.toLowerCase()}                 
                 >
                   <Card startup={startup} />
                 </Link>

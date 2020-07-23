@@ -4,12 +4,14 @@ import AddStartUp from "../components/Navbar/AddStartUp"
 import { Link } from "react-router-dom";
 
 class AgregarStartUp extends React.Component {
+  componentDidMount(){
+    document.title = "Agregar StartUp"
+  }
   render() {
     return (
       <>
         <Navbar name="STARTUP ARGENTINA" search={false}/>
         <AddStartUp/>
-        <Link to="/">Ir a la home</Link>
       </>
     );
   }
