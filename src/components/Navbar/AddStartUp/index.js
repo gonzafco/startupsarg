@@ -2,6 +2,8 @@ import React from "react";
 import "./style.css";
 import Navbar from "../../Navbar";
 import Footer from "../../Footer";
+import Card from "../../Cards/Card";
+import Modal from 'react-modal';
 
 class AddStartUp extends React.Component {
   constructor(props) {
@@ -14,9 +16,9 @@ class AddStartUp extends React.Component {
       web: "",
       twitter: "",
       instagram: "",
-      estaOk: "",
-      showMessage: false,
-      exist: false,
+      isOk: false,
+      error: false,
+      mensaje: "",
     };
   }
 
@@ -32,29 +34,37 @@ class AddStartUp extends React.Component {
   handleClick() {
     const { name, mail, logo, description } = this.state;
     const isValid = name && mail && logo && description ? true : false;
-    this.setState({ estaOk: isValid, showMessage: true }, () => {
-      if (isValid) {
-        let newStartUp = {
-          img: logo,
-          title: name,
-          description: description,
-        };
-        this.AddNewStartUp(newStartUp);
-      }
-    });
+    if (isValid === true) {
+      this.setState({ isOk: true, error:false, mensaje:"" });
+    }
+    else{
+      this.setState({ isOk: false, error: true, mensaje: "Faltan completar campos que son obligatorios." });      
+    }
+    
+  }
+
+  agregarStartUp() {
+    const { name, logo, description } = this.state;
+    let newStartUp = {
+      img: logo,
+      title: name,
+      description: description,
+    };
+    this.AddNewStartUp(newStartUp);
   }
 
   AddNewStartUp(startUp) {
     let listaStartUps = localStorage.getItem("lista");
     listaStartUps = JSON.parse(listaStartUps);
-    
+
     if (this.checkStartUp(startUp.title, listaStartUps) === false) {
-      console.log("no existe y la agrego")
       listaStartUps.push(startUp);
       localStorage.setItem("lista", JSON.stringify(listaStartUps));
     } else {
-      this.setState({ exist: true }, () => {
-        console.log(this.state.exist);
+      this.setState({
+        isOk: false,
+        error: true,
+        mensaje: "La startup que desea agregar ya existe",
       });
     }
   }
@@ -65,16 +75,19 @@ class AddStartUp extends React.Component {
     );
     return resultado === undefined ? false : true;
   }
-
-  saveStartUp(item) {}
-
   render() {
-    const { estaok, showMessage } = this.state;
+    const { isOk, exist, error } = this.state;
+    const startUp = {
+      title: this.state.name,
+      img: this.state.logo,
+      description: this.state.description,
+    };
+
     return (
       <div className="formWrapper">
-        {this.state.showMessage && (
+        {/* {this.state.showMessage && (
           <p>{this.state.estaOk ? "Todo salio bien" : "Todo salio mal"}</p>
-        )}
+        )} */}
         <div className="inputWrapper">
           <label className="label">
             Nombre *
@@ -159,11 +172,53 @@ class AddStartUp extends React.Component {
           </label>
         </div>
         <button className="submitButton" onClick={() => this.handleClick()}>
-          Enviar
+          Validar
         </button>
+
+        {isOk === true && (
+          <>
+            <div className="wardWrapper">
+              <Card className startup={startUp} />
+            </div>
+            <button
+              className="submitButton"
+              onClick={() => this.agregarStartUp()}
+            >
+              Agregar Startup
+            </button>
+            
+          </>
+        )}
+
+        {error === true && (
+          <>
+            <span className="errorWrapper">
+              Hubo un error. {this.state.mensaje}
+            </span>
+
+          </>
+        )}
       </div>
     );
   }
 }
 
 export default AddStartUp;
+
+// componentDidUpdate(){
+//   console.log("se actualizo")
+//   const {isOk} = this.state
+//   const startup = {
+//     title: this.state.name,
+//     img: this.state.logo,
+//     description: this.state.description
+//   }
+//   let preview
+//   if (isOk === true){
+//     preview = <Card startup={startup} />
+//   }
+//   else{
+//     preview = <p>Algo salio mal</p>
+//   }
+
+// }

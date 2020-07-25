@@ -36,6 +36,7 @@
     border:0.2px solid blue;
     background: white;
     color:blue
+
 }
 
 
@@ -44,10 +45,21 @@
     flex-direction: column;
 }
     
-
-
 .formWrapper .inputWrapper .label .input{
     height: 2rem;
     padding: 5px;
+}
+
+.wardWrapper{
+    margin: 0 auto;
+}
+
+.errorWrapper{    
+    margin:5px 0 5px;
+    padding:5px;
+    background: red;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
 }
 

@@ -18,27 +18,34 @@ class StartUp extends React.Component {
       startup.title.toLowerCase().includes(searchStartUp)
     );
 
-    this.setState(
-      {
-        img: img,
-        name: title,
-        description: description,
-      }
-    );
+    this.setState({
+      img: img,
+      name: title,
+      description: description,
+    });
   }
 
   componentDidMount() {
-    const {searchStartUp} = this.props
+    const { searchStartUp } = this.props;
     this.setStartUp(searchStartUp);
+  }
+
+  errorImg(e){
+    e.target.src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Achtung.svg/1200px-Achtung.svg.png"
   }
   render() {
     const { img, description, name } = this.state;
+
     return (
       <>
         <div className="startUpWrapper">
           <div className="headerDecoration"></div>
           <div className="startUpHeader">
-            <img src={img} className="startUpProfile"></img>
+            <img
+              onError={this.errorImg}
+              src={img}
+              className="startUpProfile"
+            ></img>
             <h1 className="startUpTitle">{name}</h1>
           </div>
           <div className="startUpInformation">

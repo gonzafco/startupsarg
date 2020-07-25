@@ -3,12 +3,15 @@ import './style.css';
 
 
 class Card extends React.Component {
-  render() {
 
+  errorImg(e){
+    e.target.src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Achtung.svg/1200px-Achtung.svg.png"
+  }
+  render() {
     const {img, title,description} = this.props.startup
     return (
       <div className="Card">
-        <img className="ImageCard" src={img}></img>
+        <img className="ImageCard" onError={this.errorImg} src={img}></img>
         <div className="InfoCard">
           <span className="Title">{title}</span>
           <span className="Description">{description}</span>

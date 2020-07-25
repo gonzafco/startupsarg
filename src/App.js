@@ -10,7 +10,20 @@ class App extends React.Component {
     super(props);
     this.state = {
       inputValue: "",
-      cards: [],
+      cards: [
+        {
+          img:
+            "https://pbs.twimg.com/profile_images/1259719811296309249/um6CLRiM_400x400.jpg",
+          title: "CourseIt",
+          description: "Descripción de CourseIt",
+        },
+        {
+          img:
+            "https://pbs.twimg.com/profile_images/1052208764726730753/s5bagDr__400x400.jpg",
+          title: "Endava",
+          description: "Descripción de Endava",
+        },
+      ],
     };
   }
 
@@ -19,16 +32,23 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    document.title = "StartUps ARG"
-    let listaStartups = localStorage.getItem("lista")
-    listaStartups = JSON.parse(listaStartups)
-    this.setState({
-       cards: listaStartups
-    });
+    let listaStartUps = localStorage.getItem("lista");
+    console.log(listaStartUps);
+    if (listaStartUps === null) {
+      let { cards } = this.state;
+      let startUps = JSON.stringify(cards);
+      localStorage.setItem("lista", startUps);      
+    } else {
+      let lista = localStorage.getItem("lista")
+      let startUps = JSON.parse(lista);
+      this.setState({ cards: startUps });
+    }
+    document.title = "StartUps ARG";
   }
 
   render() {
     const { inputValue, cards } = this.state;
+    
     return (
       <div className="App">
         <Navbar
@@ -36,7 +56,9 @@ class App extends React.Component {
           name="STARTUP ARGENTINA"
           search={true}
         />
+
         <Cards filter={inputValue} cards={cards} />
+        
         <Footer creator="Gonzalito" />
       </div>
     );

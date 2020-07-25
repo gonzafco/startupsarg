@@ -7,24 +7,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import AddStartUp from "./pages/AgregarStartUp";
 import StartUp from "./pages/VerStartUp";
 
-
-const startUps = 
-  [{
-    img:
-      "https://pbs.twimg.com/profile_images/1259719811296309249/um6CLRiM_400x400.jpg",
-    title: "CourseIt",
-    description: "Descripción de CourseIt",
-  },
-  {
-    img:
-      "https://pbs.twimg.com/profile_images/1052208764726730753/s5bagDr__400x400.jpg",
-    title: "Endava",
-    description: "Descripción de Endava",
-  }]
-;
-
-localStorage.setItem("lista",JSON.stringify(startUps))
-
 ReactDOM.render(
   <Router>
     <Route exact path="/" component={App} />
